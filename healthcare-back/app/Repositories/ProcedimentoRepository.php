@@ -55,9 +55,9 @@ class ProcedimentoRepository
     {
         $procedimento = new $this->procedimento;
 
-        $procedimento->nome_procedimento = $data['nome'];
-        $procedimento->valor_procedimento = $data['valor'];
-        $procedimento->percentual_comissao = $data['comissao'];
+        $procedimento->nome_procedimento = $data['nome_procedimento'];
+        $procedimento->valor_procedimento = $data['valor_procedimento'];
+        $procedimento->percentual_comissao = $data['percentual_comissao'];
 
         $procedimento->save();
 
@@ -75,9 +75,9 @@ class ProcedimentoRepository
 
         $procedimento = $this->procedimento->find($id);
 
-        $procedimento->nome_procedimento = $data['nome'];
-        $procedimento->valor_procedimento = $data['valor'];
-        $procedimento->percentual_comissao = $data['comissao'];
+        $procedimento->nome_procedimento = $data['nome_procedimento'];
+        $procedimento->valor_procedimento = $data['valor_procedimento'];
+        $procedimento->percentual_comissao = $data['percentual_comissao'];
 
         $procedimento->update();
 
