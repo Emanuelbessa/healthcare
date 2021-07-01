@@ -17,4 +17,9 @@ class Procedimento extends Model
         'valor_procedimento',
         'percentual_comissao',
     ];
+
+    public function atendimento_procedimento()
+    {
+        return $this->belongsTo(AtendimentoProcedimento::class, 'id_procedimento');
+    }
 }
