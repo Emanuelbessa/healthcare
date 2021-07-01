@@ -21,3 +21,12 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::apiResources([
+    'atendimentos' => AtendimentoController::class,
+    'pacientes' => PacienteController::class,
+    'procedimentos' => ProcedimentoController::class,
+    'profissionais' => ProfissionalController::class,
+]);
+Route::get('/atendimentos/procedimentos/{id}', [AtendimentoController::class, 'indexatendimentoprocedimentos']);
+Route::post('/atendimentos/update/status', [AtendimentoController::class, 'updatestatusatendimento']);
