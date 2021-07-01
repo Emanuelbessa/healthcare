@@ -1,0 +1,134 @@
+<div class="container-fluid mt-5">
+  <div class="edit-profile">
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <form
+          class="card"
+          [formGroup]="createAtendimentoForm"
+          (ngSubmit)="submitAtendimento()"
+        >
+          <div class="card-header">
+            <h4 class="card-title mb-0">Criar Ficha de Atendimento</h4>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6 mt-3">
+                <div class="form-group">
+                  <label class="col-form-label">Email do Paciente</label>
+                  <ng-select
+                    [multiple]="false"
+                    [(ngModel)]="pacienteSelecionado"
+                    [ngModelOptions]="{ standalone: true }"
+                  >
+                    <ng-option
+                      *ngFor="let paciente of pacientes"
+                      [value]="paciente"
+                      >{{ paciente.email_paciente }}</ng-option
+                    >
+                  </ng-select>
+                </div>
+              </div>
+              <div class="col-md-6 mt-3">
+                <div class="form-group">
+                  <label class="col-form-label"
+                    >Procedimetos à serem realizados</label
+                  >
+                  <ng-select
+                    [multiple]="true"
+                    [(ngModel)]="procedimetosSelecionados"
+                    [ngModelOptions]="{ standalone: true }"
+                    (change)="sumValoresPagamento()"
+                  >
+                    <ng-option
+                      *ngFor="let procedimento of procedimentos"
+                      [value]="procedimento"
+                      >{{ procedimento.nome_procedimento }}</ng-option
+                    >
+                  </ng-select>
+                </div>
+              </div>
+              <div class="col-md-6 mt-3">
+                <div class="form-group">
+                  <label class="col-form-label">Nome do Profissional</label>
+                  <ng-select
+                    [multiple]="false"
+                    [(ngModel)]="profissionalSelecionado"
+                    [ngModelOptions]="{ standalone: true }"
+                    (change)="setTelefoneProfissional()"
+                  >
+                    <ng-option
+                      *ngFor="let profissional of profissionais"
+                      [value]="profissional"
+                      >{{ profissional.nome_profissional }}</ng-option
+                    >
+                  </ng-select>
+                </div>
+              </div>
+              <div class="col-md-6 mt-3">
+                <div class="form-group">
+                  <label class="col-form-label">Telefone do Profissional</label>
+                  <input
+                    class="form-control"
+                    type="text"
+                    placeholder="Telefone do Profissional"
+                    readonly
+                    formControlName="telefoneProfissional"
+                    mask="(00) 00000-0000||(00) 0000-0000"
+                  />
+                </div>
+              </div>
+              <div class="col-md-6 mt-3">
+                <div class="form-group">
+                  <label class="col-form-label"
+                    >Valor Total dos Procedimentos</label
+                  >
+                  <input
+                    currencyMask
+                    [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+                    readonly
+                    class="form-control"
+                    type="text"
+                    placeholder="Valor total"
+                    formControlName="valorTotal"
+                  />
+                </div>
+              </div>
+              <div class="col-md-6 mt-3">
+                <div class="form-group">
+                  <label class="col-form-label"
+                    >Valor Total das Comissões</label
+                  >
+                  <input
+                    currencyMask
+                    [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+                    readonly
+                    class="form-control"
+                    type="text"
+                    placeholder="Valor total da Comissão"
+                    formControlName="comissaoTotal"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer text-right mt-3">
+            <button
+              class="btn btn-primary"
+              [disabled]="!createAtendimentoForm.valid"
+              type="submit"
+            >
+              Cadastrar
+            </button>
+            <button
+              class="btn btn-secondary ms-3"
+              [routerLink]="['/']"
+              type="submit"
+            >
+              Voltar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
