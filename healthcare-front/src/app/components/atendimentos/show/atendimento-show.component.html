@@ -1,0 +1,96 @@
+<div class="container">
+  <div class="table-responsive mt-3">
+    <table
+      class="table table-lg table-hover"
+      datatable
+      [dtTrigger]="dtTrigger"
+      [dtOptions]="dtOptions"
+    >
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Paciente</th>
+          <th>Profissional</th>
+          <th>Procedimento</th>
+          <th>Valor Procedimento</th>
+          <th>Valor Comissão</th>
+          <th>Realizado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let atendimento of atendimentosProcedimentos">
+          <td>
+            <div class="list-info mrg-top-15">
+              <div class="info">
+                <span class="title">{{ atendimento.id_atend_proc }}</span>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="relative mrg-top-10">
+              <span class="title">{{ atendimento.nome_paciente }} </span>
+            </div>
+          </td>
+          <td>
+            <div class="relative mrg-top-10">
+              <span class="pdd-left-20">{{
+                atendimento.nome_profissional
+              }}</span>
+            </div>
+          </td>
+          <td>
+            <div class="relative mrg-top-10">
+              <span class="pdd-left-20">{{
+                atendimento.nome_procedimento
+              }}</span>
+            </div>
+          </td>
+          <td>
+            <div class="relative mrg-top-10">
+              <span class="pdd-left-20">{{
+                atendimento.valor_procedimento
+              }}</span>
+            </div>
+          </td>
+          <td>
+            <div class="relative mrg-top-10">
+              <span class="pdd-left-20"
+                >{{ atendimento.percentual_comissao }}%</span
+              >
+            </div>
+          </td>
+          <td>
+            <div class="relative mrg-top-10">
+              <span class="pdd-left-20">{{
+                atendimento.procedimento_realizado ? "Sim" : "Não"
+              }}</span>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="7" class="text-end">
+            Valor total dos procedimentos: R$
+            {{ this.atendimentosProcedimentos[0]?.valor_total_procedimento }}
+            <br />
+            Valor total das comissões: R$
+            {{ this.atendimentosProcedimentos[0]?.valor_total_comissao }}
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+    <div class="card-footer text-right">
+      <button
+        class="btn btn-primary"
+        type="submit"
+        (click)="validarprocedimentos()"
+      >
+        Validar Procedimentos
+      </button>
+      <button class="btn btn-secondary ms-3" [routerLink]="['/']" type="submit">
+        Voltar
+      </button>
+    </div>
+  </div>
+</div>

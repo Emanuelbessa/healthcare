@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="col-sm-12 d-flex justify-content-end mt-3">
+    <button class="btn btn-outline-primary" routerLink="/atendimentos/create">
+      <div class="d-flex align-items-center">
+        <i-bs [name]="iconNames.PlusCircle"></i-bs>
+        <p class="my-0 ms-2 f-14">Novo Atendimento</p>
+      </div>
+    </button>
+  </div>
+  <div class="table-responsive mt-3">
+    <table
+      class="table table-lg table-hover"
+      datatable
+      [dtTrigger]="dtTrigger"
+      [dtOptions]="dtOptions"
+    >
+      <thead>
+        <tr>
+          <th>ID atendimento</th>
+          <th>Paciente</th>
+          <th>Valor Total do Procedimento</th>
+          <th>Valor Total da Comissão</th>
+          <th>Data</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let atendimento of atendimentos">
+          <td>
+            <div class="list-info mrg-top-15">
+              <div class="info">
+                <span class="title">{{ atendimento.id_atendimento }}</span>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="relative mrg-top-10">
+              <span class="title"
+                >{{ atendimento.paciente.nome_paciente }}
+              </span>
+            </div>
+          </td>
+          <td>
+            <div class="relative mrg-top-10">
+              <span class="pdd-left-20">{{
+                atendimento.valor_total_procedimento
+              }}</span>
+            </div>
+          </td>
+          <td>
+            <div class="relative mrg-top-10">
+              <span class="pdd-left-20">{{
+                atendimento.valor_total_comissao
+              }}</span>
+            </div>
+          </td>
+          <td>
+            <div class="relative mrg-top-10">
+              <span class="pdd-left-20">{{
+                atendimento.data | date: "dd/MM/yyyy"
+              }}</span>
+            </div>
+          </td>
+          <td>
+            <div class="mrg-top-10">
+              <a
+                class="btn btn-outline-primary"
+                [routerLink]="['/atendimentos/', atendimento.id_atendimento]"
+              >
+                <i class="ei-viber pdd-right-5"></i>
+                <span>Procedimentos</span>
+              </a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
