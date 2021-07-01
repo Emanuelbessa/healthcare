@@ -5,7 +5,6 @@ import Swal from 'sweetalert2';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Atendimento } from 'src/app/components/atendimentos/models/atendimento';
 import { AtendimentoService } from 'src/app/components/atendimentos/atendimentos.service';
-
 import { Router } from '@angular/router';
 import { IconNamesEnum } from 'ngx-bootstrap-icons';
 import { Subject } from 'rxjs';

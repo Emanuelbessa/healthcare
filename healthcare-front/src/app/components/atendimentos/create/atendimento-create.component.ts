@@ -7,10 +7,8 @@ import { ProfissionaisService } from '@components/profissionais/profissionais.se
 import { PacientesService } from '@components/pacientes/pacientes.service';
 import { ProcedimentosService } from '@components/procedimentos/procedimentos.service';
 import { Profissional } from '@components/profissionais/models/profissional';
-
 import { Procedimento } from '@components/procedimentos/models/procedimento';
 import { Paciente } from '@components/pacientes/models/paciente';
-
 import { AtendimentoService } from '../atendimentos.service';
 import { Atendimento } from '../models/atendimento';
 import { AtendimentoProcedimento } from '../models/atendimento-procedimento';
