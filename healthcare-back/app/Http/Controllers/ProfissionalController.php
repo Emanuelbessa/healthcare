@@ -54,9 +54,9 @@ class ProfissionalController extends Controller
     public function store(Request $request)
     {
         $data = $request->only([
-            'nome',
-            'email',
-            'telefone',
+            'nome_profissional',
+            'email_profissional',
+            'telefone_profissional',
         ]);
 
         $result = ['status' => 200];
@@ -104,9 +104,9 @@ class ProfissionalController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->only([
-            'nome',
-            'email',
-            'telefone',
+            'nome_profissional',
+            'email_profissional',
+            'telefone_profissional',
         ]);
 
         $result = ['status' => 200];
@@ -134,7 +134,7 @@ class ProfissionalController extends Controller
         $result = ['status' => 200];
 
         try {
-            $result['data'] = $this->pacienteService->deleteById($id);
+            $result['data'] = $this->profissionalService->deleteById($id);
         } catch (Exception $e) {
             $result = [
                 'status' => 500,
