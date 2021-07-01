@@ -1,0 +1,102 @@
+<div class="container-fluid mt-3">
+  <div class="edit-profile">
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <form
+          class="card"
+          [formGroup]="createProcedimentoForm"
+          (ngSubmit)="submitProcedimento()"
+        >
+          <div class="card-header">
+            <h4 class="card-title mb-0">
+              Cadastrar nova Opção de Procedimento
+            </h4>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="form-label">Nome do Procedimento</label>
+                  <input
+                    class="form-control"
+                    type="text"
+                    formControlName="nome"
+                  />
+                  <div
+                    *ngIf="
+                      createProcedimentoForm.get('nome').touched &&
+                      createProcedimentoForm.get('nome').hasError('required')
+                    "
+                    class="text text-danger"
+                  >
+                    Campo obrigatório!
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="form-label">Valor do procedimento</label>
+                  <input
+                    currencyMask
+                    [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+                    class="form-control"
+                    type="text"
+                    formControlName="valor"
+                  />
+                  <div
+                    *ngIf="
+                      createProcedimentoForm.get('valor').touched &&
+                      createProcedimentoForm.get('valor').hasError('required')
+                    "
+                    class="text text-danger"
+                  >
+                    Campo obrigatório!
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="col-form-label">Percentual da comissão</label>
+                  <input
+                    class="form-control"
+                    type="text"
+                    formControlName="comissao"
+                    mask="percent"
+                    suffix="%"
+                  />
+                  <div
+                    *ngIf="
+                      createProcedimentoForm.get('comissao').touched &&
+                      createProcedimentoForm
+                        .get('comissao')
+                        .hasError('required')
+                    "
+                    class="text text-danger"
+                  >
+                    Campo obrigatório!
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer text-right">
+            <button
+              class="btn btn-primary"
+              [disabled]="!createProcedimentoForm.valid"
+              type="submit"
+            >
+              Cadastrar
+            </button>
+            <button
+              class="btn btn-secondary ms-3"
+              [routerLink]="['/procedimento']"
+              type="submit"
+            >
+              Voltar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
