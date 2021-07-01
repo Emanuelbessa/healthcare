@@ -54,9 +54,9 @@ class ProcedimentoController extends Controller
     public function store(Request $request)
     {
         $data = $request->only([
-            'nome',
-            'valor',
-            'comissao',
+            'nome_procedimento',
+            'valor_procedimento',
+            'percentual_comissao',
         ]);
 
         $result = ['status' => 200];
@@ -104,9 +104,9 @@ class ProcedimentoController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->only([
-            'nome',
-            'valor',
-            'comissao',
+            'nome_procedimento',
+            'valor_procedimento',
+            'percentual_comissao',
         ]);
 
         $result = ['status' => 200];
