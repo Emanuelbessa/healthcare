@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="col-sm-12 d-flex justify-content-end mt-3">
+    <button class="btn btn-outline-primary" routerLink="/procedimentos/create">
+      <div class="d-flex align-items-center">
+        <i-bs [name]="iconNames.PlusCircle"></i-bs>
+        <p class="my-0 ms-2 f-14">Novo Procedimento</p>
+      </div>
+    </button>
+  </div>
+  <div class="table-responsive mt-3">
+    <table
+      class="table table-lg table-hover"
+      datatable
+      [dtOptions]="dtOptions"
+      [dtTrigger]="dtTrigger"
+    >
+      <thead>
+        <tr>
+          <th>Nome do Procedimento</th>
+          <th>Valor</th>
+          <th>Percentual Comissao</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let procedimento of procedimentos">
+          <td>
+            <div class="list-info mrg-top-15">
+              <div class="info">
+                <span class="title">{{ procedimento.nome_procedimento }}</span>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="relative mrg-top-10">
+              <span class="title">{{ procedimento.valor_procedimento }} </span>
+            </div>
+          </td>
+          <td>
+            <div class="relative mrg-top-10">
+              <span class="pdd-left-20">{{
+                procedimento.percentual_comissao
+              }}</span>
+            </div>
+          </td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
