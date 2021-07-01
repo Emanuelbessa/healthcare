@@ -1,0 +1,113 @@
+<div class="container-fluid">
+  <div class="row vh-100">
+    <div
+      class="col-12 col-sm-3 col-xl-3 px-sm-2 px-0 bg-primary d-flex sticky-top"
+    >
+      <div
+        class="
+          d-flex
+          flex-sm-column flex-row flex-grow-1
+          align-items-center align-items-sm-start
+          px-3
+          pt-2
+          text-white
+        "
+      >
+        <a
+          routerLink="/"
+          class="
+            d-flex
+            align-items-center
+            pb-sm-3
+            mb-md-0
+            me-md-auto
+            text-white text-decoration-none
+          "
+        >
+          <span class="fs-1 text-logo"
+            >H<span class="d-none d-sm-inline">ealthcare</span></span
+          >
+        </a>
+        <ul
+          class="
+            nav nav-pills
+            flex-sm-column
+            flex-row
+            flex-nowrap
+            flex-shrink-1
+            flex-sm-grow-0
+            flex-grow-1
+            mb-sm-auto mb-0
+            justify-content-center
+            align-items-center align-items-sm-start
+          "
+          id="menu"
+        >
+          <li class="nav-item">
+            <a routerLink="/" class="nav-link text-white px-sm-0 px-2">
+              <fa-icon size="2x" [icon]="faIcons.faHome"></fa-icon>
+              <span class="ms-1 d-none d-sm-inline">Home</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              routerLink="/procedimentos"
+              class="nav-link text-white px-sm-0 px-2"
+            >
+              <fa-icon size="2x" [icon]="faIcons.faSyringe"></fa-icon>
+              <span class="ms-1 d-none d-sm-inline">Procedimentos</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/pacientes" class="nav-link text-white px-sm-0 px-2">
+              <fa-icon size="2x" [icon]="faIcons.faUserInjured"></fa-icon>
+
+              <span class="ms-1 d-none d-sm-inline">Pacientes</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              routerLink="/profissionais"
+              class="nav-link text-white px-sm-0 px-2"
+            >
+              <fa-icon size="2x" [icon]="faIcons.faUserMd"></fa-icon>
+              <span class="ms-1 d-none d-sm-inline">Profissionais</span>
+            </a>
+          </li>
+        </ul>
+        <div class="dropdown py-sm-4 mt-sm-auto ms-auto ms-sm-0 flex-shrink-1">
+          <a
+            href="#"
+            class="
+              d-flex
+              align-items-center
+              text-white text-decoration-none
+              dropdown-toggle
+            "
+            id="dropdownUser1"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i-bs [name]="iconNames.PersonCircle"></i-bs>
+            <span class="d-none d-sm-inline mx-2">Emanuel</span>
+          </a>
+          <ul
+            class="dropdown-menu dropdown-menu-dark text-small shadow"
+            aria-labelledby="dropdownUser1"
+          >
+            <li><a class="dropdown-item" routerLink="/profile">Perfil</a></li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li><a class="dropdown-item">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col col-sm-9 col-lg-10 col-xl-9">
+      <main class="row overflow-auto">
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+  </div>
+</div>
