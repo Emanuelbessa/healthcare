@@ -22,7 +22,9 @@ class ProcedimentoFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'nome_procedimento' => $this->faker->bothify('Procedimento-######'),
+            'valor_procedimento' => $this->faker->randomFloat($nbMaxDecimals = 2, $min = 1, $max = 50000),
+            'percentual_comissao' => $this->faker->randomFloat($nbMaxDecimals = 2, $min = 1, $max = 99),
         ];
     }
 }

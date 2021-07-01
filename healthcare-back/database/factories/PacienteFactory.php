@@ -22,7 +22,9 @@ class PacienteFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'nome_paciente' => $this->faker->name,
+            'email_paciente' => $this->faker->unique()->safeEmail,
+            'telefone_paciente' => $this->faker->phoneNumber,
         ];
     }
 }

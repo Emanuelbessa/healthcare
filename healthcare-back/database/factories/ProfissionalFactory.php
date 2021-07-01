@@ -22,7 +22,9 @@ class ProfissionalFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'nome_profissional' => $this->faker->name,
+            'email_profissional' => $this->faker->unique()->safeEmail,
+            'telefone_profissional' => $this->faker->phoneNumber,
         ];
     }
 }
