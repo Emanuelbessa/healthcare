@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="col-sm-12 d-flex justify-content-end mt-3">
+    <button class="btn btn-outline-primary" routerLink="/pacientes/create">
+      <div class="d-flex align-items-center">
+        <i-bs [name]="iconNames.PlusCircle"></i-bs>
+        <p class="my-0 ms-2 f-14">Novo Paciente</p>
+      </div>
+    </button>
+  </div>
+  <div class="table-responsive mt-3">
+    <table
+      class="table table-lg table-hover"
+      datatable
+      [dtOptions]="dtOptions"
+      [dtTrigger]="dtTrigger"
+    >
+      <thead>
+        <tr>
+          <th>ID Paciente</th>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Telefone</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let paciente of pacientes">
+          <td>
+            <div class="list-info mrg-top-15">
+              <div class="info">
+                <span class="title">{{ paciente.id_paciente }}</span>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="relative mrg-top-10">
+              <span class="title">{{ paciente.nome_paciente }} </span>
+            </div>
+          </td>
+          <td>
+            <div class="relative mrg-top-10">
+              <span class="pdd-left-20">{{ paciente.email_paciente }}</span>
+            </div>
+          </td>
+          <td>
+            <div class="relative mrg-top-10">
+              <span class="pdd-left-20">{{ paciente.telefone_paciente }}</span>
+            </div>
+          </td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
