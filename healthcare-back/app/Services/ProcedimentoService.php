@@ -81,9 +81,9 @@ class ProcedimentoService
     public function updateProcedimento($data, $id)
     {
         $validator = Validator::make($data, [
-            'nome' => 'min:3|string',
-            'valor' => 'numeric|min:2|max:10',
-            'comissao' => 'numeric|min:2|max:3',
+            'nome_procedimento' => 'min:3|string',
+            'valor_procedimento' => 'numeric|min:5',
+            'percentual_comissao' => 'numeric|min:0|max:100',
         ]);
 
         if ($validator->fails()) {
@@ -116,9 +116,9 @@ class ProcedimentoService
     public function saveProcedimentoData($data)
     {
         $validator = Validator::make($data, [
-            'nome' => 'required|min:3|string',
-            'valor' => 'required|numeric|min:5',
-            'comissao' => 'required|numeric|min:2|max:80',
+            'nome_procedimento' => 'required|min:3|string',
+            'valor_procedimento' => 'required|numeric|min:5',
+            'percentual_comissao' => 'required|numeric|min:0|max:100',
         ]);
 
         if ($validator->fails()) {
