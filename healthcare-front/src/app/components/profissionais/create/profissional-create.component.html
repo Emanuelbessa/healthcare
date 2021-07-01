@@ -1,0 +1,119 @@
+<!-- Container-fluid starts-->
+<div class="container-fluid mt-3">
+  <div class="edit-profile">
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <form
+          class="card"
+          [formGroup]="createProfissionalForm"
+          (ngSubmit)="submitProfissional()"
+        >
+          <div class="card-header">
+            <h4 class="card-title mb-0">Cadastrar Profissional</h4>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="form-label">Nome</label>
+                  <input
+                    class="form-control"
+                    type="text"
+                    formControlName="nome"
+                  />
+                  <div
+                    *ngIf="
+                      createProfissionalForm.get('nome').touched &&
+                      createProfissionalForm.get('nome').hasError('required')
+                    "
+                    class="text text-danger"
+                  >
+                    Campo obrigatório!
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="form-label">Email</label>
+                  <input
+                    class="form-control"
+                    type="email"
+                    formControlName="email"
+                  />
+                  <div
+                    *ngIf="
+                      createProfissionalForm.get('email').touched &&
+                      createProfissionalForm.get('email').hasError('required')
+                    "
+                    class="text text-danger"
+                  >
+                    Campo obrigatório!
+                  </div>
+                  <div
+                    *ngIf="
+                      createProfissionalForm.get('email').touched &&
+                      createProfissionalForm.get('email').hasError('email')
+                    "
+                    class="text text-danger"
+                  >
+                    Email inválido!
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="col-form-label">Telefone</label>
+                  <input
+                    class="form-control"
+                    type="text"
+                    mask="00 00000-0000||00 0000-0000"
+                    formControlName="telefone"
+                  />
+                  <div
+                    *ngIf="
+                      createProfissionalForm.get('telefone').touched &&
+                      createProfissionalForm
+                        .get('telefone')
+                        .hasError('required')
+                    "
+                    class="text text-danger"
+                  >
+                    Campo obrigatório!
+                  </div>
+                  <div
+                    *ngIf="
+                      createProfissionalForm.get('telefone').touched &&
+                      createProfissionalForm
+                        .get('telefone')
+                        .hasError('minlength')
+                    "
+                    class="text text-danger"
+                  >
+                    Número inválido!
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer text-right">
+            <button
+              class="btn btn-primary"
+              [disabled]="!createProfissionalForm.valid"
+              type="submit"
+            >
+              Cadastrar
+            </button>
+            <button
+              class="btn btn-secondary ms-3"
+              [routerLink]="['/profissionais']"
+              type="submit"
+            >
+              Voltar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Container-fluid Ends-->

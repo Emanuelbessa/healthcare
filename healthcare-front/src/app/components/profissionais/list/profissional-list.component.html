@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="col-sm-12 d-flex justify-content-end mt-3">
+    <button class="btn btn-outline-primary" routerLink="/profissionais/create">
+      <div class="d-flex align-items-center">
+        <i-bs [name]="iconNames.PlusCircle"></i-bs>
+        <p class="my-0 ms-2 f-14">Novo Profissional</p>
+      </div>
+    </button>
+  </div>
+  <div class="table-responsive mt-3">
+    <table
+      class="table table-lg table-hover"
+      datatable
+      [dtOptions]="dtOptions"
+      [dtTrigger]="dtTrigger"
+    >
+      <thead>
+        <tr>
+          <th>ID Profissional</th>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Telefone</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let profissional of profissionais">
+          <td>
+            <div class="list-info mrg-top-15">
+              <div class="info">
+                <span class="title">{{ profissional.id_profissional }}</span>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="relative mrg-top-10">
+              <span class="title">{{ profissional.nome_profissional }} </span>
+            </div>
+          </td>
+          <td>
+            <div class="relative mrg-top-10">
+              <span class="pdd-left-20">{{
+                profissional.email_profissional
+              }}</span>
+            </div>
+          </td>
+          <td>
+            <div class="relative mrg-top-10">
+              <span class="pdd-left-20">{{
+                profissional.telefone_profissional
+              }}</span>
+            </div>
+          </td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
