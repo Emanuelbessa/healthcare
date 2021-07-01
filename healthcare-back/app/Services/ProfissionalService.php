@@ -81,9 +81,9 @@ class ProfissionalService
     public function updateProfissional($data, $id)
     {
         $validator = Validator::make($data, [
-            'nome' => 'min:3',
-            'email' => 'email|max:100',
-            'telefone' => 'min:10|max:13',
+            'nome_profissional' => 'min:3',
+            'email_profissional' => 'email|max:100',
+            'telefone_profissional' => 'min:10|max:13',
         ]);
 
         if ($validator->fails()) {
@@ -116,9 +116,9 @@ class ProfissionalService
     public function saveProfissionalData($data)
     {
         $validator = Validator::make($data, [
-            'nome' => 'required|min:3',
-            'email' => 'required|email|max:100',
-            'telefone' => 'required|min:10|max:13',
+            'nome_profissional' => 'required|min:3',
+            'email_profissional' => 'required|email|max:100',
+            'telefone_profissional' => 'required|min:10|max:13',
         ]);
 
         if ($validator->fails()) {
