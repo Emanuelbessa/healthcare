@@ -17,4 +17,9 @@ class Profissional extends Model
         'email_profissional',
         'telefone_profissional',
     ];
+
+    public function atendimento_procedimento()
+    {
+        return $this->belongsTo(AtendimentoProcedimento::class, 'id_profissional');
+    }
 }
