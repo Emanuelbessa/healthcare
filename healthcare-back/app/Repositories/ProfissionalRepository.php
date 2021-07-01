@@ -55,9 +55,9 @@ class ProfissionalRepository
     {
         $profissional = new $this->profissional;
 
-        $profissional->nome_profissional = $data['nome'];
-        $profissional->email_profissional = $data['email'];
-        $profissional->telefone_profissional = $data['telefone'];
+        $profissional->nome_profissional = $data['nome_profissional'];
+        $profissional->email_profissional = $data['email_profissional'];
+        $profissional->telefone_profissional = $data['telefone_profissional'];
 
         $profissional->save();
 
@@ -75,9 +75,9 @@ class ProfissionalRepository
 
         $profissional = $this->profissional->find($id);
 
-        $profissional->nome_profissional = $data['nome'];
-        $profissional->email_profissional = $data['email'];
-        $profissional->telefone_profissional = $data['telefone'];
+        $profissional->nome_profissional = $data['nome_profissional'];
+        $profissional->email_profissional = $data['email_profissional'];
+        $profissional->telefone_profissional = $data['telefone_profissional'];
 
         $profissional->update();
 
