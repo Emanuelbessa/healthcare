@@ -55,9 +55,9 @@ class PacienteRepository
     {
         $paciente = new $this->paciente;
 
-        $paciente->nome_paciente = $data['nome'];
-        $paciente->email_paciente = $data['email'];
-        $paciente->telefone_paciente = $data['telefone'];
+        $paciente->nome_paciente = $data['nome_paciente'];
+        $paciente->email_paciente = $data['email_paciente'];
+        $paciente->telefone_paciente = $data['telefone_paciente'];
 
         $paciente->save();
 
@@ -75,9 +75,9 @@ class PacienteRepository
 
         $paciente = $this->paciente->find($id);
 
-        $paciente->nome_paciente = $data['nome'];
-        $paciente->email_paciente = $data['email'];
-        $paciente->telefone_paciente = $data['telefone'];
+        $paciente->nome_paciente = $data['nome_paciente'];
+        $paciente->email_paciente = $data['email_paciente'];
+        $paciente->telefone_paciente = $data['telefone_paciente'];
 
         $paciente->update();
 

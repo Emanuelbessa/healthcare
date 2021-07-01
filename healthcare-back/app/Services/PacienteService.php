@@ -81,9 +81,9 @@ class PacienteService
     public function updatePaciente($data, $id)
     {
         $validator = Validator::make($data, [
-            'nome' => 'min:3',
-            'email' => 'email|max:100',
-            'telefone' => 'min:10|max:13',
+            'nome_paciente' => 'min:3',
+            'email_paciente' => 'email|max:100',
+            'telefone_paciente' => 'min:10|max:13',
         ]);
 
         if ($validator->fails()) {
@@ -116,9 +116,9 @@ class PacienteService
     public function savePacienteData($data)
     {
         $validator = Validator::make($data, [
-            'nome' => 'required|min:3',
-            'email' => 'required|email|max:100',
-            'telefone' => 'required|min:10|max:13',
+            'nome_paciente' => 'required|min:3',
+            'email_paciente' => 'required|email|max:100',
+            'telefone_paciente' => 'required|min:10|max:13',
         ]);
 
         if ($validator->fails()) {
