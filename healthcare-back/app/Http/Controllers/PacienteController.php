@@ -55,9 +55,9 @@ class PacienteController extends Controller
     public function store(Request $request)
     {
         $data = $request->only([
-            'nome',
-            'email',
-            'telefone',
+            'nome_paciente',
+            'email_paciente',
+            'telefone_paciente',
         ]);
 
         $result = ['status' => 200];
@@ -106,9 +106,9 @@ class PacienteController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->only([
-            'nome',
-            'email',
-            'telefone',
+            'nome_paciente',
+            'email_paciente',
+            'telefone_paciente',
         ]);
 
         $result = ['status' => 200];
