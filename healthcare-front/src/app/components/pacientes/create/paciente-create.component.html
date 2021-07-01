@@ -1,0 +1,113 @@
+<div class="container-fluid mt-3">
+  <div class="edit-profile">
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <form
+          class="card"
+          [formGroup]="createPacienteForm"
+          (ngSubmit)="submitPaciente()"
+        >
+          <div class="card-header">
+            <h4 class="card-title mb-0">Cadastrar Paciente</h4>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="form-label">Nome</label>
+                  <input
+                    class="form-control"
+                    type="text"
+                    formControlName="nome"
+                  />
+                  <div
+                    *ngIf="
+                      createPacienteForm.get('nome').touched &&
+                      createPacienteForm.get('nome').hasError('required')
+                    "
+                    class="text text-danger"
+                  >
+                    Campo obrigatório!
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="form-label">Email</label>
+                  <input
+                    class="form-control"
+                    type="email"
+                    formControlName="email"
+                  />
+                  <div
+                    *ngIf="
+                      createPacienteForm.get('email').touched &&
+                      createPacienteForm.get('email').hasError('required')
+                    "
+                    class="text text-danger"
+                  >
+                    Campo obrigatório!
+                  </div>
+                  <div
+                    *ngIf="
+                      createPacienteForm.get('email').touched &&
+                      createPacienteForm.get('email').hasError('email')
+                    "
+                    class="text text-danger"
+                  >
+                    Email inválido!
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="col-form-label">Telefone</label>
+                  <input
+                    class="form-control"
+                    type="text"
+                    mask="(00) 00000-0000||(00) 0000-0000"
+                    formControlName="telefone"
+                  />
+                  <div
+                    *ngIf="
+                      createPacienteForm.get('telefone').touched &&
+                      createPacienteForm.get('telefone').hasError('required')
+                    "
+                    class="text text-danger"
+                  >
+                    Campo obrigatório!
+                  </div>
+                  <div
+                    *ngIf="
+                      createPacienteForm.get('telefone').touched &&
+                      createPacienteForm.get('telefone').hasError('minlength')
+                    "
+                    class="text text-danger"
+                  >
+                    Número inválido!
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer text-right">
+            <button
+              class="btn btn-primary"
+              [disabled]="!createPacienteForm.valid"
+              type="submit"
+            >
+              Cadastrar
+            </button>
+            <button
+              class="btn btn-secondary ms-3"
+              [routerLink]="['/pacientes']"
+              type="submit"
+            >
+              Voltar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
